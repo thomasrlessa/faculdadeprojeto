@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas Lessa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Menu</h1>
+        <!-- Menu de Navegação -->
+        <nav>
+            <ul>
+                <li><a href="#" onclick="carregarPagina('sobre.html')">Sobre Mim</a></li>
+                <li><a href="#" onclick="carregarPagina('educacao.html')">Formação</a></li>
+                <li><a href="#" onclick="carregarPagina('portfolio.html')">Portfólio</a></li>
+                <li><a href="#" onclick="carregarPagina('contato.html')">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção para carregar o conteúdo das páginas -->
+    <main id="conteudo">
+        <h2>Seja bem-vindo(a) ao meu portfólio!</h2>
+        <p>Clique nos links acima para saber mais sobre mim. Fique a vontade para entrar em contato e conversarmos!</p>
+    </main>
+
+    <script>
+        // Função para carregar uma página HTML dentro da div "conteudo"
+        function carregarPagina(pagina) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("conteudo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", pagina, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>
